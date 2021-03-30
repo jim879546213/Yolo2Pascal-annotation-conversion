@@ -4,10 +4,10 @@ from yolo_io import YoloReader
 import os.path
 import sys
 
-try:
-    from PyQt5.QtGui import QImage
-except ImportError:
-    from PyQt4.QtGui import QImage
+# try:
+#     from PyQt5.QtGui import QImage
+# except ImportError:
+#     from PyQt4.QtGui import QImage
 
 
 imgFolderPath = sys.argv[1]
@@ -23,9 +23,12 @@ for file in os.listdir(imgFolderPath):
 
         print("Load this image:", imagePath)
 
-        image = QImage()
-        image.load(imagePath)
-        imageShape = [image.height(), image.width(), 1 if image.isGrayscale() else 3]
+#         image = QImage()
+#         image.load(imagePath)
+#         imageShape = [image.height(), image.width(), 1 if image.isGrayscale() else 3]
+        image = cv2.imread(imagePath)
+        imageShape = [image.shape[0],image.shape[1],image.shape[2]]
+        
         imgFolderName = os.path.basename(imgFolderPath)
         imgFileName = os.path.basename(imagePath)
 
