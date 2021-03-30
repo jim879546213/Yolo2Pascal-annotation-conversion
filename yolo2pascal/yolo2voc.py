@@ -19,7 +19,7 @@ for file in os.listdir(imgFolderPath):
 
         annotation_no_txt = os.path.splitext(file)[0]
 
-        imagePath = os.path.join(imgFolderPath, annotation_no_txt + ".jpg")
+        imagePath = os.path.join(imgFolderPath, annotation_no_txt + ".tif")
 
         print("Load this image:", imagePath)
 
